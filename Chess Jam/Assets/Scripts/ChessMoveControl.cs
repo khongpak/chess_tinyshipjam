@@ -5,13 +5,16 @@ using TMPro;
 using UnityEngine.UI;
 using System.Runtime.CompilerServices;
 
+
 public class ChessMoveControl : MonoBehaviour
 {
-    public GameObject kingPawn;
+    public GameObject kingPawn,soldierPawn;
     public TMP_InputField commandInputText;
 
     private float gabBetweenTable = 1.32f;
-   
+    private string pawnName,pawnMove;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,16 +30,16 @@ public class ChessMoveControl : MonoBehaviour
 
     public void Endturn()
     {
-        PawnMove(kingPawn);
+        PawnMove();
     }
 
-    public void PawnMove(GameObject pawnName)
+    public void PawnMoveOrder(GameObject pawnName)
     {
         float moveX = pawnName.transform.position.x;
         float moveY = pawnName.transform.position.y;
         float moveZ = pawnName.transform.position.z;
 
-        if (commandInputText.text == "go")
+        if (pawnMove == "up")
         {
             moveX = pawnName.transform.position.x;
             moveY = pawnName.transform.position.y;
@@ -44,21 +47,21 @@ public class ChessMoveControl : MonoBehaviour
 
         }
 
-        if (commandInputText.text == "down")
+        if (pawnMove == "down")
         {
             moveX = pawnName.transform.position.x;
             moveY = pawnName.transform.position.y;
             moveZ = pawnName.transform.position.z - gabBetweenTable;
         }
 
-        if (commandInputText.text == "left")
+        if (pawnMove == "left")
         {
             moveX = pawnName.transform.position.x - gabBetweenTable;
             moveY = pawnName.transform.position.y;
             moveZ = pawnName.transform.position.z;
         }
 
-        if (commandInputText.text == "right")
+        if (pawnMove == "right")
         {
             moveX = pawnName.transform.position.x + gabBetweenTable;
             moveY = pawnName.transform.position.y;
@@ -66,5 +69,21 @@ public class ChessMoveControl : MonoBehaviour
         }
 
         pawnName.transform.position = new Vector3(moveX, moveY, moveZ);
+    }
+
+    public void PawnMove()
+    {
+        RegularExpression.instance.MyRegex(commandInputText.text);
+        pawnName = RegularExpression.instance.Get_RexOrder("name");
+        pawnMove = RegularExpression.instance.Get_RexOrder("move");
+
+        if (pawnName == "King")
+        {
+            PawnMoveOrder(kingPawn);
+        }
+        else if (pawnName == "S1")
+        {
+            PawnMoveOrder(soldierPawn);
+        }
     }
 }
