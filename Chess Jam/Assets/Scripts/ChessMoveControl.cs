@@ -73,7 +73,8 @@ public class ChessMoveControl : MonoBehaviour
 
     public void PawnMove()
     {
-        RegularExpression.instance.MyRegex(commandInputText.text);
+        //RegularExpression.instance.MyRegex(commandInputText.text);
+        RegularExpression.instance.MyRegex("Hello,world");
         pawnName = RegularExpression.instance.Get_RexOrder("name");
         pawnMove = RegularExpression.instance.Get_RexOrder("move");
 
