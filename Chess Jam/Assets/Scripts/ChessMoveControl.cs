@@ -31,6 +31,7 @@ public class ChessMoveControl : MonoBehaviour
     public void Endturn()
     {
         PawnMove();
+        EnemyMove.Instance.Move();
     }
 
     public void PawnMoveOrder(GameObject pawnName)
@@ -73,8 +74,7 @@ public class ChessMoveControl : MonoBehaviour
 
     public void PawnMove()
     {
-        //RegularExpression.instance.MyRegex(commandInputText.text);
-        RegularExpression.instance.MyRegex("Hello,world");
+        RegularExpression.instance.MyRegex(commandInputText.text);
         pawnName = RegularExpression.instance.Get_RexOrder("name");
         pawnMove = RegularExpression.instance.Get_RexOrder("move");
 

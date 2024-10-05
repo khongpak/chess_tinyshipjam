@@ -40,8 +40,8 @@ public class RegularExpression : MonoBehaviour
         pawnName = match1.Value;
         pawnMove = match2.Value;
 
-        Debug.Log("First :" + pawnName);
-        Debug.Log("Second :" + pawnMove);
+        //Debug.Log("First :" + pawnName);
+        //Debug.Log("Second :" + pawnMove);
     }
 
     public string Get_RexOrder(string order)
