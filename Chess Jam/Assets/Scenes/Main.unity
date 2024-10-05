@@ -584,9 +584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4822c97815aa0e6419a9b5e6fff7e139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kingPawn: {fileID: 1594959046}
-  soldierPawn: {fileID: 542369578}
-  commandInputText: {fileID: 1550452459}
 --- !u!4 &470190658
 Transform:
   m_ObjectHideFlags: 0
@@ -947,6 +944,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &718083427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718083429}
+  - component: {fileID: 718083428}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &718083428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718083427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f76ce3b1eb0bb4f841b61206bd8700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kingPawn: {fileID: 1594959046}
+  soldierPawn: {fileID: 542369578}
+  commandInputText: {fileID: 1550452459}
+  enemyThinkingTime: 0.5
+  turnButton: {fileID: 1653317700}
+--- !u!4 &718083429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718083427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08923414, y: 1.1021073, z: -12.109226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723666134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,8 +1991,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 470190657}
-        m_TargetAssemblyTypeName: ChessMoveControl, Assembly-CSharp
+      - m_Target: {fileID: 718083428}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: Endturn
         m_Mode: 1
         m_Arguments:
@@ -2111,3 +2157,4 @@ SceneRoots:
   - {fileID: 730717314}
   - {fileID: 470190658}
   - {fileID: 1532756092}
+  - {fileID: 718083429}

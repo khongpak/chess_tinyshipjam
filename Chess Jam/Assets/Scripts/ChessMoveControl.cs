@@ -8,14 +8,16 @@ using System.Runtime.CompilerServices;
 
 public class ChessMoveControl : MonoBehaviour
 {
-    public GameObject kingPawn,soldierPawn;
-    public TMP_InputField commandInputText;
+    public static ChessMoveControl instance;
 
     private float gabBetweenTable = 1.32f;
     private string pawnName,pawnMove;
 
-    
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +30,7 @@ public class ChessMoveControl : MonoBehaviour
         
     }
 
-    public void Endturn()
-    {
-        PawnMove();
-        EnemyMove.Instance.Move();
-    }
+    
 
     public void PawnMoveOrder(GameObject pawnName)
     {
@@ -74,17 +72,18 @@ public class ChessMoveControl : MonoBehaviour
 
     public void PawnMove()
     {
-        RegularExpression.instance.MyRegex(commandInputText.text);
+        string command = GameController.instance.commandInputText.text.ToLower();
+        RegularExpression.instance.MyRegex(command);
         pawnName = RegularExpression.instance.Get_RexOrder("name");
         pawnMove = RegularExpression.instance.Get_RexOrder("move");
 
-        if (pawnName == "King")
+        if (pawnName == "king")
         {
-            PawnMoveOrder(kingPawn);
+            PawnMoveOrder(GameController.instance.kingPawn);
         }
-        else if (pawnName == "S1")
+        else if (pawnName == "s1")
         {
-            PawnMoveOrder(soldierPawn);
+            PawnMoveOrder(GameController.instance.soldierPawn);
         }
     }
 }

@@ -43,6 +43,7 @@ public class EnemyMove : MonoBehaviour
                 else
                 {
                     reverst = true;
+                    enemyPawn[randomEnemyNumber].transform.position = new Vector3(enemyPawn[randomEnemyNumber].transform.position.x - enemyMoveStep, enemyPawn[randomEnemyNumber].transform.position.y, enemyPawn[randomEnemyNumber].transform.position.z);
                 }
             }
             else
@@ -54,6 +55,7 @@ public class EnemyMove : MonoBehaviour
                 else
                 {
                     reverst = false;
+                    enemyPawn[randomEnemyNumber].transform.position = new Vector3(enemyPawn[randomEnemyNumber].transform.position.x + enemyMoveStep, enemyPawn[randomEnemyNumber].transform.position.y, enemyPawn[randomEnemyNumber].transform.position.z);
                 }
             }
         }
@@ -68,6 +70,7 @@ public class EnemyMove : MonoBehaviour
                 else
                 {
                     reverst = true;
+                    enemyPawn[randomEnemyNumber].transform.position = new Vector3(enemyPawn[randomEnemyNumber].transform.position.x, enemyPawn[randomEnemyNumber].transform.position.y, enemyPawn[randomEnemyNumber].transform.position.z - enemyMoveStep);
                 }
             }
             else
@@ -79,6 +82,7 @@ public class EnemyMove : MonoBehaviour
                 else
                 {
                     reverst = false;
+                    enemyPawn[randomEnemyNumber].transform.position = new Vector3(enemyPawn[randomEnemyNumber].transform.position.x, enemyPawn[randomEnemyNumber].transform.position.y, enemyPawn[randomEnemyNumber].transform.position.z + enemyMoveStep);
                 }
             }
         }
