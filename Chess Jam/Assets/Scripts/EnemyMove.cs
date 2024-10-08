@@ -93,4 +93,7 @@ public class EnemyMove : MonoBehaviour
         int amountOfEnemy = enemyPawn.Length;
         randomEnemyNumber = Random.Range(0, amountOfEnemy);
     }
+
+    
+   
 }
