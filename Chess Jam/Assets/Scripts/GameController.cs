@@ -9,12 +9,14 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    public GameObject kingPawn, soldierPawn;
+    
     public TMP_InputField commandInputText;
     public float enemyThinkingTime;
     public Button turnButton;
-
     public List<PlayerInfo> pawn = new List<PlayerInfo>();
+
+    private int turnCount = 0;
+    [SerializeField] private TextMeshProUGUI turnText;
 
 
     private void Awake()
@@ -30,6 +32,8 @@ public class GameController : MonoBehaviour
     private IEnumerator WaitTurn()
     {
         ChessMoveControl.instance.PawnMove();
+        turnCount++;
+        turnText.text = "Turn : " + turnCount;
         turnButton.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(enemyThinkingTime);
         EnemyMove.Instance.Move();

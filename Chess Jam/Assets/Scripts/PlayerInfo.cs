@@ -16,6 +16,7 @@ public class PlayerInfo : MonoBehaviour
     void Start()
     {
         nameText.text = pawnName;
+        gameObject.name = pawnName;
     }
 
     // Update is called once per frame
