@@ -5,8 +5,9 @@ using UnityEngine;
 public class SpawnFinishFlag : MonoBehaviour
 {
     [SerializeField] private Transform[] flagSpawnPoint;
-    private int randomPoint;
     [SerializeField] GameObject finishFlag;
+
+    private int randomPoint;
 
     private void Start()
     {
