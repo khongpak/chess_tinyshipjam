@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public float enemyThinkingTime;
     public Button turnButton;
 
+    public List<PlayerInfo> pawn = new List<PlayerInfo>();
+
 
     private void Awake()
     {

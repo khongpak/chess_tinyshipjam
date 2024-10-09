@@ -32,7 +32,7 @@ public class ChessMoveControl : MonoBehaviour
 
     
 
-    public void PawnMoveOrder(GameObject pawnName)
+    public void PawnMoveOrder(PlayerInfo pawnName)
     {
         float moveX = pawnName.transform.position.x;
         float moveY = pawnName.transform.position.y;
@@ -77,6 +77,15 @@ public class ChessMoveControl : MonoBehaviour
         pawnName = RegularExpression.instance.Get_RexOrder("name");
         pawnMove = RegularExpression.instance.Get_RexOrder("move");
 
+        for (int i = 0; i < GameController.instance.pawn.Count; i++)
+        {
+            
+            if(pawnName == GameController.instance.pawn[i].pawnName.ToLower())
+            {
+                PawnMoveOrder(GameController.instance.pawn[i]);
+            }
+        }
+        /*
         if (pawnName == "king")
         {
             PawnMoveOrder(GameController.instance.kingPawn);
@@ -85,5 +94,6 @@ public class ChessMoveControl : MonoBehaviour
         {
             PawnMoveOrder(GameController.instance.soldierPawn);
         }
+        */
     }
 }
