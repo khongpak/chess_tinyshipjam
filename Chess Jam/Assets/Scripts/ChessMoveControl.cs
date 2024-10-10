@@ -82,7 +82,14 @@ public class ChessMoveControl : MonoBehaviour
             
             if(pawnName == GameController.instance.pawn[i].pawnName.ToLower())
             {
-                PawnMoveOrder(GameController.instance.pawn[i]);
+                if (GameController.instance.pawn[i] != null)
+                {
+                    PawnMoveOrder(GameController.instance.pawn[i]);
+                }
+                else
+                {
+                    Debug.Log("Object was destory");
+                }
             }
         }
         /*
