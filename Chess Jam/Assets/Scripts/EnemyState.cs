@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyState : MonoBehaviour
 {
-   
+    
 
     public void OnCollisionEnter(Collision other)
     {
@@ -13,4 +13,7 @@ public class EnemyState : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    
+
 }

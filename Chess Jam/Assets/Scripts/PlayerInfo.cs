@@ -8,6 +8,7 @@ public class PlayerInfo : MonoBehaviour
     public static PlayerInfo instance;
     public string pawnName;
     public TextMeshPro nameText;
+    public int pawnHealth = 1;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -15,13 +16,11 @@ public class PlayerInfo : MonoBehaviour
     }
     void Start()
     {
+        
         nameText.text = pawnName;
         gameObject.name = pawnName;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+   
 }
