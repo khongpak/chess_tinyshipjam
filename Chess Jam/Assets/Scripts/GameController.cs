@@ -32,11 +32,18 @@ public class GameController : MonoBehaviour
     private IEnumerator WaitTurn()
     {
         ChessMoveControl.instance.PawnMove();
+        PlayerInfo.instance.isMove = true;
+        EnemyInfo.instance.isMove = false;
         turnCount++;
         turnText.text = "Turn : " + turnCount;
         turnButton.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(enemyThinkingTime);
-        EnemyMove.Instance.Move();
+        if (EnemyMove.Instance.enemyPawn.Count > 0)
+        {
+            PlayerInfo.instance.isMove = false;
+            EnemyInfo.instance.isMove = true;
+            EnemyMove.Instance.Move();
+        }
         turnButton.gameObject.SetActive(true);
         commandInputText.text = "";
         Debug.Log("Player Turn");

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class EnemyInfo : MonoBehaviour
 {
-    
+    public static EnemyInfo instance;
     [SerializeField] bool isHorizontal;
-    private int enemyHealth = 1;
+    public bool isMove;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

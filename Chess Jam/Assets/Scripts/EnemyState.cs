@@ -10,7 +10,11 @@ public class EnemyState : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Destroy(other.gameObject);
+            if (EnemyInfo.instance.isMove && !PlayerInfo.instance.isMove)
+            {
+                
+                Destroy(other.gameObject);
+            }
         }
     }
 
