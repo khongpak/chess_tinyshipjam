@@ -12,7 +12,7 @@ public class SpawnFinishFlag : MonoBehaviour
     private void Start()
     {
         randomPoint = Random.Range(0, flagSpawnPoint.Length-1);
-        Debug.Log(flagSpawnPoint[randomPoint].position);
+        //Debug.Log(flagSpawnPoint[randomPoint].position);
         Instantiate(finishFlag, flagSpawnPoint[randomPoint].transform.position, Quaternion.identity);
     }
     

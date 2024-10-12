@@ -9,7 +9,11 @@ public class FlagControl : MonoBehaviour
 
         if (other.name.ToLower() == "king")
         {
-            Debug.Log("Finish");
+            Destroy(gameObject);
+            GameController.instance.gamestatus.text = "You Win!";
+            GameController.instance.gamestatus.color = Color.blue;
+            GameController.instance.buttonNextText.text = "NextLevel";
+            GameController.instance.finishPanel.SetActive(true);
         }
     }
 }
